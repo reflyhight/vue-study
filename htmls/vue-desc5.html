@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍5</title>
+</head>
+<body>
+
+
+<h2>事件</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app">
+
+   {{msg}}
+
+    <button v-on:click="reverse">翻转单词</button>
+
+</div>
+
+
+
+
+<script>
+    var  app= new Vue({
+        el:'#app',
+        data:{
+          msg:"hello world"
+        },
+        methods:{
+            reverse:function () {
+                this.msg=this.msg.split('').reverse().join('')
+            }
+        }
+
+    })
+
+</script>
+
+
+
+
+</body>
+</html>

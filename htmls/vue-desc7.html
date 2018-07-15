@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍7</title>
+</head>
+<body>
+
+
+<h2>组件系统是 Vue 的另一个重要概念，因为它是一种抽象，允许我们使用小型、独立和通常可复用的组件构建大型应用。仔细想想，几乎任意类型的应用界面都可以抽象为一个组件树：</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app">
+
+   {{msg}}
+    <br>
+
+    <input type="text" v-model="msg">
+
+</div>
+
+
+
+
+<script>
+    var  app= new Vue({
+        el:'#app',
+        data:{
+          msg:"hello world"
+        }
+
+    })
+
+</script>
+
+
+
+
+</body>
+</html>

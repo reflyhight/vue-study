@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍2</title>
+</head>
+<body>
+
+
+<h2>这里我们遇到了一点新东西。你看到的 v-bind 特性被称为指令。指令带有前缀 v-，以表示它们是 Vue 提供的特殊特性。</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app-2">
+    <span v-bind:title="msg">鼠标悬停几秒钟查看此处动态绑定的提示信息！</span>
+</div>
+
+<script>
+
+
+    var app2= new Vue({
+        el:"#app-2",
+        data:{
+            msg:"页面加载于："+ new  Date().toLocaleString()
+        }
+    })
+</script>
+
+
+
+
+</body>
+</html>

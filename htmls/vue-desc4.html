@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍4</title>
+</head>
+<body>
+
+
+<h2>循环很简单</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app">
+
+    <ul>
+        <li v-for="i in list">
+            {{i}}
+        </li>
+    </ul>
+</div>
+
+
+
+
+<script>
+    var  app= new Vue({
+        el:'#app',
+        data:{
+            list:[
+                "香蕉",
+                "茄子",
+                "土豆"
+            ]
+        }
+    })
+
+</script>
+
+
+
+
+</body>
+</html>

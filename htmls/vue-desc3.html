@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍3</title>
+</head>
+<body>
+
+
+<h2>控制切换一个元素是否显示也相当简单：</h2>
+<h2>继续在控制台输入 app3.seen = false，你会发现之前显示的消息消失了。</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app">
+    <p v-if="seen">是否隐藏</p>
+</div>
+
+
+
+
+<script>
+    var  app= new Vue({
+        el:'#app',
+        data:{
+            seen:true
+        }
+    })
+
+</script>
+
+
+
+
+</body>
+</html>
