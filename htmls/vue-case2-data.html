@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实例2-数据</title>
+</head>
+<body>
+<h2>当一个 Vue 实例被创建时，**它向 Vue 的响应式系统中加入了其 data
+    对象中能找到的所有的属性。**当这些属性的值发生改变时，**视图将会产生“响应”**，即匹配更新为新的值。</h2>
+
+<h2>当这些数据改变时，视图会进行重渲染。值得注意的是只有当实例被创建时 data 中存在的属性才是响应式的。
+    也就是说如果你添加一个新的属性，比如：</h2>
+
+<div id="app">
+
+    <span>{{day}}</span>
+    <span>{{month}}</span>
+</div>
+
+<script src="../dist/vue.js"></script>
+
+
+<script>
+
+    var data = { day: "20180717" }
+
+    app= new Vue({
+        el:"#app",
+        data:data
+
+    })
+
+    data.month="07"
+</script>
+
+
+<h2>如果你知道你会在晚些时候需要一个属性，但是一开始它为空或不存在，那么你仅需要设置一些初始值。如：</h2>
+
+<textarea style="height:200px;width:500px" >
+    <script>
+    var data = { day: "20180717",month:null }
+    app= new Vue({
+        el:"#app",
+        data:data
+    })
+    data.month="07"
+</script>
+</textarea>
+
+
+</body>
+</html>
