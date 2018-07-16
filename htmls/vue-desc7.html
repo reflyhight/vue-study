@@ -13,23 +13,20 @@
 
 <div id="app">
 
-   {{msg}}
-    <br>
 
-    <input type="text" v-model="msg">
-
+<list></list>
 </div>
 
 
 
 
 <script>
-    var  app= new Vue({
-        el:'#app',
-        data:{
-          msg:"hello world"
-        }
+   Vue.component("list",{
+       template:"<ul><li>苹果</li><li>橘子</li><li>梨子</li></ul>"
+   })
 
+    var app= new Vue({
+        el:'#app'
     })
 
 </script>

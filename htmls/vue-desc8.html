@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue介绍7</title>
+</head>
+<body>
+
+
+<h2>desc7中的模板太过于死板，这看起来并不炫酷。我们应该能从父作用域将数据传到子组件才对。让我们来修改一下组件的定义，使之能够接受一个 prop</h2>
+
+<script src="../dist/vue.js"></script>
+
+<div id="app">
+
+
+<ul>
+    <list v-for="item in flist" v-bind:todo="item" > </list>
+
+</ul>
+</div>
+
+
+
+
+<script>
+   Vue.component("list",{
+
+       props:['todo'],
+       template:"<li>{{todo.text}}</li>"
+   })
+
+    var app= new Vue({
+        el:'#app',
+        data:{
+            flist:[
+                {id:0,text:"苹果"},
+                {id:1,text:"香蕉"},
+                {id:3,text:"橘子"}
+            ]
+        }
+    })
+
+</script>
+
+
+
+
+</body>
+</html>
