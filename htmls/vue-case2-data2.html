@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue实例2-数据2</title>
+</head>
+<body>
+<h2>除了数据属性，Vue 实例还暴露了一些有用的实例属性与方法。它们都有前缀 $，以便与用户定义的属性区分开来。</h2>
+
+<div id="app">
+
+    {{msg}}
+</div>
+
+<script src="../dist/vue.js"></script>
+
+
+
+
+
+
+<script>
+    var data= {
+        msg:"hello"
+    }
+
+    var app= new Vue(
+        {
+            el:"#app",
+            data:data
+        }
+    )
+
+    alert(app.$data === data)
+
+    // $watch 是一个实例方法
+    app.$watch('msg', function (newValue, oldValue) {
+        // 这个回调将在 `vm.a` 改变后调用
+            alert("msg has been changed newValue is "+ newValue+"oldValue is "+oldValue )
+
+    })
+
+
+</script>
+</body>
+</html>

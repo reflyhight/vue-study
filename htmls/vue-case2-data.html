@@ -47,6 +47,23 @@
 </script>
 </textarea>
 
+<h3>这里唯一的例外是使用 Object.freeze()，这会阻止修改现有的属性，也意味着响应系统无法再追踪变化</h3>
+
+<textarea style="height:200px;width:500px" >
+    <script>
+       var obj = {
+           foo: 'bar'
+       }
+
+       Object.freeze(obj)
+
+       new Vue({
+           el: '#app',
+           data: obj
+       })
+</script>
+</textarea>
+
 
 </body>
 </html>
