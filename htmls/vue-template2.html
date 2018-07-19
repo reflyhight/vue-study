@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue模板语法2 原始 HTML</title>
+</head>
+<body>
+
+<h3>双大括号会将数据解释为普通文本，而非 HTML 代码。为了输出真正的 HTML，你需要使用 v-html 指令</h3>
+
+
+<div id="app">
+    {{msg}}
+
+    <span v-html="msg"></span>
+</div>
+
+<script src="../dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"<h1>这是一个h1标题</h1>"
+        }
+    })
+</script>
+
+</body>
+</html>

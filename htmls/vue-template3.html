@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue模板语法3 控制html元素</title>
+</head>
+<body>
+
+<h3>当data中的属性需要改变html元素的属性时，模板语法就无法使用了，
+    此时可以使用v-bind指令
+</h3>
+
+
+
+
+<div id="app">
+    <button v-bind:disabled="isButtonDisabled">是否禁用的</button>
+</div>
+
+<script src="../dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            isButtonDisabled :true
+        }
+    })
+</script>
+
+</body>
+</html>

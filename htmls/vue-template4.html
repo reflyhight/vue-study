@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue模板语法3 使用 JavaScript 表达式</title>
+</head>
+<body>
+
+<h3>
+    迄今为止，在我们的模板中，我们一直都只绑定简单的属性键值。
+    但实际上，对于所有的数据绑定，Vue.js 都提供了完全的 JavaScript 表达式支持。
+</h3>
+
+
+
+
+<div id="app">
+    {{number+1}}<br>
+
+    {{ifTrue? 'true':'false'}} <br>
+
+    {{msg.split('').reverse().join('')}}<br>
+
+    <span v-bind:id="'item_'+id">{{'item_'+id}}</span>
+
+</div>
+
+
+<h3>这些表达式会在所属 Vue 实例的数据作用域下作为 JavaScript 被解析。
+    有个限制就是，每个绑定都只能包含单个表达式，所以下面的例子都不会生效。</h3>
+
+<textarea style="height:200px;width:500px" >
+
+    <!-- 这是语句，不是表达式 -->
+    {{ var a = 1 }}
+
+    <!-- 流控制也不会生效，请使用三元表达式 -->
+    {{ if (ok) { return message } }}
+</textarea>
+
+
+<script src="../dist/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            number :10,
+            ifTrue:true,
+            msg:"hello world",
+            id:001
+        }
+    })
+</script>
+
+</body>
+</html>
