@@ -32,6 +32,21 @@
         <input type="text">
         <button v-on:click.prevent="ifPrevent">提交</button>
     </form>
+
+    <h2>缩写</h2>
+    <h3>v-bind缩写</h3>
+    <textarea style="height:200px;width:500px" >
+        <!--以下效果相同-->
+        <a v-bind:href="url">这是个链接</a>
+        <a :href="url">这是个链接</a>
+    </textarea>
+
+    <h3>v-on缩写</h3>
+    <textarea style="height:200px;width:500px" >
+        <!--以下效果相同-->
+        <a v-on:click="dosomething">这是个链接</a>
+        <a @click="dosomething">这是个链接</a>
+    </textarea>
 </div>
 
 
