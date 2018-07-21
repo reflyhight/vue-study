@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听器1 </title>
+</head>
+<body>
+
+
+<div id="app">
+    <h2>什么是监听器</h2>
+    <h3>Vue 通过 watch 选项提供了一个更通用的方法，来响应数据的变化</h3>
+
+
+    <input type="text" v-model="name"> <br>
+    {{msg}}
+
+</div>
+
+
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            name:"haima",
+            msg:"xxx"
+        },
+        watch:{
+            name:function (n,o) {
+                this.msg="typing name"
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>
