@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue模板语法5 指令</title>
+</head>
+<body>
+
+
+
+
+
+
+<div id="app">
+    <h2>指令定义</h2>
+    <h3>
+        指令是带v-的特殊特性。指令的值 预期是单个 Javascript 表达式，v-for是个列外
+    </h3>
+
+    <p v-if="ifshow">是否看得见这个文本</p>
+
+    <h2>参数</h2>
+    <h3>一些指令能够接收一些参数，在指令之后用冒号表示。列入v-bind</h3>
+    <a v-bind:href="url">这是一个连接</a>
+
+    <h2>修饰符</h2>
+    <h3>修饰符 是 以半角点号 . 指明特殊后缀，用于指出一个指令该以特殊的方式绑定，如下.prevent阻止(click)默认事件，这里button无法提交</h3>
+    <h3>更多见https://cn.vuejs.org/v2/api/#v-on</h3>
+
+    <form>
+
+        <input type="text">
+        <button v-on:click.prevent="ifPrevent">提交</button>
+    </form>
+
+
+    <h2>缩写</h2>
+    <h3>v-bind缩写</h3>
+    <textarea style="height:200px;width:500px" >
+        <!--以下效果相同-->
+        <a v-bind:href="url">这是个链接</a>
+        <a :href="url">这是个链接</a>
+    </textarea>
+
+    <h3>v-on缩写</h3>
+    <textarea style="height:200px;width:500px" >
+        <!--以下效果相同-->
+        <a v-on:click="dosomething">这是个链接</a>
+        <a @click="dosomething">这是个链接</a>
+    </textarea>
+
+
+</div>
+
+
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    vm = new Vue({
+        el:"#app",
+        data:{
+            ifshow:true,
+            url:"www.baidu.com",
+            ifPrevent :true
+        }
+    })
+</script>
+</body>
+</html>
