@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性</title>
+</head>
+<body>
+
+
+<div id="app">
+    <h2>模板内的表达式非常便利，但设计它的初衷是简化逻辑，如果逻辑太复杂就显得特别臃肿，如下列子</h2>
+
+    <textarea  style="height:200px;width:500px" >
+        <div id="example">
+      {{ msg.split('').reverse().join('') }}
+    </div>
+    </textarea>
+
+    <p>{{msg}}</p>
+    <p>{{reverseMsg}}</p>
+
+</div>
+
+
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        computed:{
+            reverseMsg:function () {
+                this.msg.split('').reverse().join()
+            }
+        }
+    })
+</script>
+</body>
+</html>
