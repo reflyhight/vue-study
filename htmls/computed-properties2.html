@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性2 计算属性vs 方法 </title>
+</head>
+<body>
+
+
+<div id="app">
+    <h2>你可能已经注意到我们可以通过在表达式中调用方法来达到同样的效果：</h2>
+
+
+    <p>{{msg}}</p>
+    <p>{{reverseMsg}}</p>
+
+</div>
+
+
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    vm = new Vue({
+        el:"#app",
+        data:{
+            msg:"hello"
+        },
+        methods:{
+            reverseMsg:function () {
+               return this.msg.split('').reverse().join()
+            }
+        }
+    })
+</script>
+</body>
+</html>
