@@ -8,11 +8,24 @@
 
 
 <div id="app">
-    <h2>你可能已经注意到我们可以通过在表达式中调用方法来达到同样的效果：</h2>
+    <h3>你可能已经注意到我们可以通过在表达式中调用方法来达到同样的效果：</h3>
 
 
-    <p>{{msg}}</p>
-    <p>{{reverseMsg}}</p>
+
+    <h3>然而，不同的是计算属性是基于它们的依赖进行缓存的。计算属性只有在它的相关依赖发生改变时才会重新求值。
+        这就意味着只要 message 还没有发生改变，
+        多次访问 reversedMessage 计算属性会立即返回之前的计算结果，而不必再次执行函数。</h3>
+
+    <h3>并且method声明的方法，是方法，模板调用的时候可以带上()，而computed是属性，调用时不能用() </h3>
+
+
+    <p>{{methodGetMesAndTime()}}</p>
+    <p>{{methodGetMesAndTime()}}</p>
+
+    <p>后面这两个值相同，computedGetMesAndTime只被调用一次</p>
+    <p>{{computedGetMesAndTime}}</p>
+    <p>{{computedGetMesAndTime}}</p>
+
 
 </div>
 
@@ -31,11 +44,22 @@
             msg:"hello"
         },
         methods:{
-            reverseMsg:function () {
-               return this.msg.split('').reverse().join()
+            methodGetMesAndTime:function () {
+               return this.msg+Date.now()
+            }
+        },
+        computed:{
+            computedGetMesAndTime:function () {
+                return this.msg+Date.now()
             }
         }
+
+
     })
+
+
+
+
 </script>
 </body>
 </html>
