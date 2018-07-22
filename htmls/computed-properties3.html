@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算属性3 计算属性的setter方法 </title>
+</head>
+<body>
+
+
+<div id="app">
+    <h3>计算属性默认只有 getter ，不过在需要时你也可以提供一个 setter ：</h3>
+
+    <h3>此时在控制台中输入vm.fullName='xxx xxx' ，firstName和lastName也会跟随变化</h3>
+    {{firstName}} <br>
+    {{lastName}}<br>
+    {{fullName}}
+
+</div>
+
+
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    vm = new Vue({
+        el:"#app",
+        data:{
+            firstName:"Rob",
+            lastName:"Jiang"
+        },
+        computed:{
+            fullName:{
+                get:function () {
+                    return this.firstName+' '+this.lastName
+                },
+                set:function (n) {
+                    var names=n.split(" ")
+                    this.firstName = names[0]
+                    this.lastName = names[names.length - 1]
+                }
+            }
+        }
+
+
+    })
+
+
+
+
+</script>
+</body>
+</html>
