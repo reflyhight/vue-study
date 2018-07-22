@@ -27,6 +27,22 @@
 <div id="app2">
     <h3>我们也可以在这里绑定一个返回对象的计算属性。这是一个常用且强大的模式：</h3>
     <div v-bind:class="classObject"></div>
+
+</div>
+
+<div id="app3">
+    <h2>数组语法</h2>
+    <h3>我们可以把一个数组传给 v-bind:class，以应用一个 class 列表：</h3>
+    <div v-bind:class="[activeClass,errorClass]"></div>
+</div>
+
+<div id="app4">
+    <h2>当决定data属性为boolean时，可以使用三元运算符</h2>
+    <div v-bind:class="[active?,activeClass:'',errorClass]"></div>
+
+    <h2>或者如下</h2>
+    <div v-bind:class="[{activeClass:active},errorClass]"></div>
+
 </div>
 
 
@@ -62,6 +78,22 @@
                     'text-danger': this.error && this.error.type === 'fatal'
                 }
             }
+        }
+    })
+
+    var vm3= new Vue({
+        el:"#app3",
+        data:{
+            activeClass: 'active',
+            errorClass: 'text-danger'
+        }
+    })
+
+    var vm4= new Vue({
+        el:"#app4",
+        data:{
+            active: true,
+            errorClass: 'text-danger'
         }
     })
 
