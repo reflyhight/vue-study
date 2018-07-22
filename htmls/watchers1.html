@@ -15,6 +15,9 @@
     <input type="text" v-model="name"> <br>
     {{msg}}
 
+
+
+
 </div>
 
 
@@ -32,9 +35,17 @@
             name:"haima",
             msg:"xxx"
         },
+
+        /*一个死循环*/
         watch:{
             name:function (n,o) {
-                this.msg="typing name"
+                this.msg=this.msg+1
+            },
+
+
+            /*watch方法可以只有一个参数*/
+            msg:function (n) {
+                this.name=this.name+1
             }
         }
 

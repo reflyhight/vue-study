@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>监听器2 监听器 vs 计算器</title>
+</head>
+<body>
+
+
+<div id="app1">
+    <h2>监听器 的问题</h2>
+    <h3>Vue 提供了一种更通用的方式来观察和响应 Vue 实例上的数据变动：侦听属性。
+        当你有一些数据需要随着其它数据变动而变动时，你很容易滥用 watch。下面这个例子：</h3>
+
+
+    {{ fullName }}
+</div>
+
+
+<div id="app2">
+    <h2>比较计算属性</h2>
+    <h3>将其改为计算属性则很简单</h3>
+    {{ fullName }}
+</div>
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    var app1 = new Vue({
+        el:"#app1",
+        data:{
+            firstName:"Rob",
+            lastName:"Jiang",
+            fullName:"Rob Jiang"
+        },
+
+        watch:{
+            firstName:function (n) {
+                this.fullName=n+" "+this.lastName
+            },
+            lastName:function (n) {
+                this.fullName=this.firstName+" "+n
+            }
+        }
+
+    })
+
+    var app2 = new Vue({
+        el:"#app2",
+        data:{
+            firstName:"Rob",
+            lastName:"Jiang",
+        },
+
+        computed:{
+            fullName:function () {
+               return this.firstName+" "+this.lastName
+            }
+        }
+
+    })
+
+</script>
+</body>
+</html>
