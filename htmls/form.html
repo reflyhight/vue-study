@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Class 与 Style 2 绑定内联样式</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+
+    <!--form表单的双向绑定使用v-model-->
+    <h3>hobbys的值为option被选中的情况</h3>
+    <select v-model="hobbys">
+        <option value="lanqiu">lanqiu</option>
+        <option value="zuqiu">zuqiu</option>
+        <option value="paiqiu">paiqiu</option>
+    </select>
+
+    <h3>hobbys的值为option被选中的情况</h3>
+    男：<input type="radio" v-model="sex" value="boy">
+
+    女：<input type="radio" v-model="sex" value="girl">
+
+
+    <h3>value可以绑定到一个data属性上去,这个地方有点儿绕</h3>
+    是否选择<input type="radio" v-model="pick" v-bind:value="ifpick">
+
+    <h2>修饰符</h2>
+    <h3>v-model再用点号加上</h3>
+    <!-- 在“change”时而非“input”时更新 -->
+    <h3>change是输入结束，焦点离开input触发，input是输入中就会触发 </h3>
+    <input v-model.lazy="name" > <br>
+
+    <h3>如果想自动将用户的输入值转为数值类型，可以给 v-model 添加 number 修饰符</h3>
+    得分：<input v-model.number="score"  type="number" >
+
+    <br>
+
+    <h3>如果要自动过滤用户输入的首尾空白字符，可以给 v-model 添加 trim 修饰符：</h3>
+    备注：<input v-model.trim="desc"   >
+
+    <br>
+
+
+
+</div>
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    var vm = new Vue({
+        el:"#app",
+        data:{
+            hobbys:'lanqiu',
+            sex:'',
+            ifpick:'',
+            pick:false,
+            name:'hailong',
+            score:null,
+            desc:null
+        }
+    })
+
+
+</script>
+</body>
+</html>
