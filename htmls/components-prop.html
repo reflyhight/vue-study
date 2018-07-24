@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件，prop</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+
+    <h1>prop 限制</h1>
+
+    <!--这里直接写 word-count='111111',这样会被认为是字符串111111-->
+    <!--v-bind 则会被认为是js表达式，而111111js表达式是是常量数字-->
+    <!--<myp v-bind:word-count='111111' ,xx="hello"> 也是错误的，中介不是逗号分隔，，， -->
+    <myp v-bind:word-count='111111' xx="hello">
+        测试prop
+    </myp>
+
+</div>
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+    Vue.component('myp',{
+        props:{
+            wordCount:{
+                type:Number,
+                required:true
+            },
+            xx:String,
+        },
+        template:'<p  > <slot></slot></p>'
+    })
+
+    var vm = new Vue(
+        {
+            el:"#app",
+
+        }
+    )
+
+
+
+
+</script>
+</body>
+</html>
