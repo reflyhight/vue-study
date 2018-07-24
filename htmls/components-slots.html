@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件，插槽</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+
+    <h1>简单插槽</h1>
+    <h2>组件作为元素，如果内部需要值，那么就需要插槽，通过slots标记插槽生成的组件实体插入的位置</h2>
+    <!--如果没有插槽，组件中的文字将不会显示-->
+    <myp>hexxxxxxwo</myp>
+
+
+    <h1>具名插槽</h1>
+
+    <h2>具名插槽可以让组件的内容控制得更细致。</h2>
+    <h2>我们还是可以保留一个未命名插槽，这个插槽是默认插槽，也就是说它会作为所有未匹配到插槽的内容的统一出口。
+    除了具名插槽的其他内容，都会被包含在这个默认插槽里
+    </h2>
+    <mydiv>
+        <template slot="footer">
+            退役了
+        </template>
+        <p>上阵</p>
+        <p>杀敌</p>
+
+        <template slot="header">
+            我是一个兵
+        </template>
+        <p>保家国</p>
+    </mydiv>
+
+</div>
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+    /*简单插槽*/
+    Vue.component('myp',{
+        template: '<p style="font-size: 20px;font-weight:bold"> <slot></slot></p>',
+        }
+    )
+
+    /*具名插槽*/
+    Vue.component('mydiv',{
+        template: '<div class="container">\n' +
+        '  <header>\n' +
+        '    <slot name="header"></slot>\n' +
+        '  </header>\n' +
+        '  <main>\n' +
+        '    <slot></slot>\n' +
+        '  </main>\n' +
+        '  <footer>\n' +
+        '    <slot name="footer"></slot>\n' +
+        '  </footer>\n' +
+        '</div>',
+        }
+    )
+
+
+
+
+    new Vue({
+        el:"#app",
+    })
+
+
+
+
+</script>
+</body>
+</html>
