@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件，事件</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+
+    <h2>组件，事件</h2>
+    <h3>通过事件向父级组件发送消息,这里引入$emit</h3>
+    <h3>这个例子有点儿复杂，大概的意思是组件内部的元素触发事件，
+        希望被组件收到做出响应（组件外层无法绑定内部元素的事件）</h3>
+
+
+
+</div>
+
+<div id="blog-posts-events-demo">
+    <div :style="{ fontSize: postFontSize + 'em' }">
+        <blog-post
+                v-for="post in posts"
+                v-bind:key="post.id"
+                v-bind:post="post"
+                v-on:enlarge-text="postFontSize += 0.1"
+        ></blog-post>
+    </div>
+</div>
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+
+    Vue.component('blog-post', {
+        props: ['post'],
+        template: "<div class=\"blog-post\">" +
+        " <h3>{{ post.title }}</h3>" +
+        "<button v-on:click=\"$emit('enlarge-text')\">" +
+        "Enlarge text" +
+        "</button>" +
+        "<div v-html=\"post.content\"></div>" +
+        " </div>"
+    })
+
+
+    new Vue({
+        el: '#blog-posts-events-demo',
+        data: {
+            posts: [ { id: 1, title: 'My journey with Vue' },
+                { id: 2, title: 'Blogging with Vue' },
+                { id: 3, title: 'Why Vue is so fun' }],
+            postFontSize: 1
+        }
+    })
+
+
+
+
+</script>
+</body>
+</html>
