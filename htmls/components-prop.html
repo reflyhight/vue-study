@@ -12,7 +12,7 @@
 
 <div id="app">
 
-    <h1>prop 限制</h1>
+    <h2>prop 限制</h2>
 
     <!--这里直接写 word-count='111111',这样会被认为是字符串111111-->
     <!--v-bind 则会被认为是js表达式，而111111js表达式是是常量数字-->
@@ -21,6 +21,11 @@
     <myp v-bind:word-count='111111' xx="hello" data-date-picker="activated">
         测试prop
     </myp>
+
+
+    <h2>替换/合并已有的特性</h2>
+    <h3>对于绝大多数特性来说，从外部提供给组件的值会替换掉组件内部设置好的值。所以如果传入 type="text" 就会替换掉 type="date" 并把它破坏！庆幸的是，class 和 style 特性会稍微智能一些，
+        即两边的值会被合并起来，从而得到最终的值：form-control date-picker-theme-dark。</h3>
 
 </div>
 
