@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>事件</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+    <h2>监听事件</h2>
+    <h3>可以用 v-on 指令监听 DOM 事件，并在触发时运行一些 JavaScript 代码</h3>
+
+    <span >学生数为{{studentNums}}</span><br>
+    <button v-on:click="studentNums++">增加学生数</button>
+
+
+    <h2>事件处理方法</h2>
+    <h3>然而许多事件处理逻辑会更为复杂，所以直接把 JavaScript 代码写在 v-on 指令中是不可行的。
+        因此 v-on 还可以接收一个需要调用的方法名称。</h3>
+
+    <button v-on:click="clickButton">打印当前元素名字</button>
+
+    <h2>内联处理器中的方法</h2>
+    <h3>除了直接绑定到一个方法，也可以在内联 JavaScript 语句中调用方法：
+        这样可以传递值
+    </h3>
+
+    <button v-on:click="printMsg('hello world')">printMsg</button>
+
+    <h2>加入对事件的访问</h2>
+
+    <button v-on:click="printMsg('hello world',$event)">printMsg and tagName</button>
+</div>
+
+
+
+<script src="../dist/vue.js"></script>
+
+<script>
+
+
+
+    var vm = new Vue(
+        {
+            el:"#app",
+            data:{
+                studentNums:1,
+            },
+            methods:{
+                clickButton:function (e) {
+                    alert(e.target.tagName)
+                },
+                printMsg:function (msg,e) {
+                    alert(msg)
+                    alert(e.target.tagName)
+                }
+            }
+
+        }
+    )
+
+
+
+
+</script>
+</body>
+</html>
