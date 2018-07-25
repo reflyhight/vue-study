@@ -27,6 +27,13 @@
     <h3>对于绝大多数特性来说，从外部提供给组件的值会替换掉组件内部设置好的值。所以如果传入 type="text" 就会替换掉 type="date" 并把它破坏！庆幸的是，class 和 style 特性会稍微智能一些，
         即两边的值会被合并起来，从而得到最终的值：form-control date-picker-theme-dark。</h3>
 
+
+</div>
+
+<div id="app2">
+    <h2>解决props越来越多带来的程序臃肿问题</h2>
+
+    <my-post v-bind:post="post"></my-post>
 </div>
 
 
@@ -45,9 +52,32 @@
         template:'<p  > <slot></slot></p>'
     })
 
+    Vue.component('my-post',{
+        props:['post'],
+        template:'<div><p>{{post.title}}</p>' +
+        '<p>{{post.content}}</p>' +
+        '<p>{{post.footer}}</p></div>'
+    })
+
+
     var vm = new Vue(
         {
             el:"#app",
+
+        }
+    )
+
+
+    var vm = new Vue(
+        {
+            el:"#app2",
+            data:{
+                post:{
+                    title:"boy",
+                    content:"good boy",
+                    footer:"copy right"
+                }
+            }
 
         }
     )
