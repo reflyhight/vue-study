@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>组件，事件</title>
+</head>
+<body>
+
+
+
+
+
+<div id="app">
+
+
+    <h2>动态组件</h2>
+    <h3>所谓的动态组件，是组件的内容可以动态生成，通过component 完成</h3>
+
+    <ul>
+        <li>首先注册3个组件</li>
+        <li>使用component v-bind:is选出一个组件的名字</li>
+    </ul>
+
+    <h3>特别注意 v-bind:is="'tab-home'"  tab-home作为组件名称需要用''</h3>
+    <component v-bind:is="'tab-home'"></component>
+</div>
+
+
+
+
+<script src="../dist/vue.js"></script>
+
+
+
+<script>
+    /*首先注册3个组件*/
+    Vue.component('tab-home', {
+        template: '<div>Home component</div>'
+    })
+    Vue.component('tab-posts', {
+        template: '<div>Posts component</div>'
+    })
+    Vue.component('tab-archive', {
+        template: '<div>Archive component</div>'
+    })
+
+    new Vue({
+        el:"#app"
+    })
+</script>
+</body>
+</html>
